@@ -1,4 +1,4 @@
-#CODE CHALLENGE
+# CODE CHALLENGE
 
 
 The [client](https://github.com/kumarerubandi/code_challenge_1/tree/master/client) directory consists of a frontend app written on Angular 9. 
