@@ -1,0 +1,88 @@
+
+<form class="search-form">
+  <mat-form-field>
+    <mat-label>From date</mat-label>
+    <input matInput [matDatepicker]="from" name="from_date" [(ngModel)]="from_date" required>
+    <mat-datepicker-toggle matSuffix [for]="from"></mat-datepicker-toggle>
+    <mat-datepicker #from></mat-datepicker>
+  </mat-form-field>
+
+  &nbsp;
+
+  <mat-form-field>
+    <mat-label>To date</mat-label>
+    <input matInput [matDatepicker]="to" name="to_date" [(ngModel)]="to_date" required>
+    <mat-datepicker-toggle matSuffix [for]="to"></mat-datepicker-toggle>
+    <mat-datepicker #to></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-icon-button color="primary" type="submit" (click)="search()">
+    GO
+  </button>
+  (or)&nbsp;
+  <button type="button" mat-icon-button color="warn"   (click)="reset()">
+    Reset
+  </button>
+</form>
+<div class="table-container">
+  <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header="id"> Id. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- City Column -->
+    <ng-container matColumnDef="city">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header="city"> City </th>
+      <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+    </ng-container>
+  
+    <!-- Start Date Column -->
+    <ng-container matColumnDef="start_date">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header="start_date"> Start Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.start_date}} </td>
+    </ng-container>
+  
+    <!-- End Date Column -->
+    <ng-container matColumnDef="end_date">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header="end_date"> End Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.end_date}} </td>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header="price"> Price </th>
+      <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header="status"> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+     <!-- Color Column -->
+     <ng-container matColumnDef="color">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header="color"> Color </th>
+      <td mat-cell *matCellDef="let element"> {{element.color}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    
+  </table>
+  
+</div>
+
+
+
+
+
+
+<router-outlet></router-outlet>

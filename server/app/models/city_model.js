@@ -70,8 +70,8 @@ City.getAll = result => {
 
 City.updateById = (id, city, result) => {
   sql.query(
-    "UPDATE cities SET email = ?, name = ?, active = ? WHERE id = ?",
-    [city.email, city.name, city.active, id],
+    "UPDATE cities SET city = ? ,start_date = ? ,end_date = ? ,price = ? ,status = ? ,color = ?  WHERE id = ?",
+       [city.city, city.start_date, city.end_date,city.price, city.status, city.color, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);

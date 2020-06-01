@@ -8,7 +8,7 @@ module.exports = app => {
     app.post("/city/bulkCreate", city.bulkCreate);
 
     // Retrieve all Cities
-    app.get("/cities", city.findAll);
+    app.get("/city", city.findAll);
 
     // Retrieve a single City with cityId
     app.get("/city/:cityId", city.findOne);
